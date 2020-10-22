@@ -115,7 +115,7 @@ if __name__ == '__main__':
         print('get_closest_meeting initiated:')
         now = datetime.datetime.now().strftime('%H')
         t = '-'
-        for table in pTable:
+        for table in pTable:  # issue2 located
             date_and_time = closest_meeting_table_date(table)
             if date_and_time[0] == datetime.datetime.now().strftime('%d %b %Y'):  # if date is today
                 print('Date matches')
@@ -198,9 +198,7 @@ if __name__ == '__main__':
     def scheduler():
         schedule.every().day.at('06:45').do(update_schedule)
         schedule.every().day.at('07:00').do(scheduler_caller)
-        schedule.every().day.at('07:15').do(scheduler_caller)
         schedule.every().day.at('09:00').do(scheduler_caller)
-        schedule.every().day.at('10:00').do(scheduler_caller)
         schedule.every().day.at('11:00').do(scheduler_caller)
         schedule.every().day.at('13:00').do(scheduler_caller)
         schedule.every().day.at('15:00').do(scheduler_caller)
