@@ -27,7 +27,7 @@ if __name__ == '__main__':
     options.add_experimental_option('excludeSwitches', ['enable-logging', 'ignore-certificate-errors'])
     options.add_argument('headless')
 
-    driver = webdriver.Chrome(executable_path='D:\\PyCharm\\WebDriver\\chromedriver.exe', options=options)
+    driver = webdriver.Chrome(executable_path='chromedriver.exe', options=options)
 
     pTable = PrettyTable()
     pTable.field_names = ['DATE', 'TIME', 'CLASS', 'MODE', 'COURSE', 'SESSION', 'LINK']
@@ -216,6 +216,6 @@ if __name__ == '__main__':
     while True:
         if works == 0:
             print('Scheduler running..')
-            works+1
+            works = 1
         schedule.run_pending()
         time.sleep(1)
