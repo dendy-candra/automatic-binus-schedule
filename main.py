@@ -8,6 +8,21 @@ import datetime
 from selenium.webdriver.common.alert import Alert
 
 if __name__ == '__main__':
+    def get_user_and_pass():
+        print('Welcome to automate your binus schedule,\n'
+              'Please input your username and password\nThis is a one time feature so be cautious when submitting.')
+        u = input('username: ')
+        p = input('password: ')
+        fd = open('userInput.py', "w")
+        data = ("username = '{}'\npassword = '{}'".format(u, p))
+        fd.write(data)
+        return [u, p]
+
+    if username == '' and password == '':
+        up = get_user_and_pass()
+        username = up[0]
+        password = up[1]
+
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging', 'ignore-certificate-errors'])
     options.add_argument('headless')
@@ -197,7 +212,10 @@ if __name__ == '__main__':
     print('Table Updated')
     scheduler()
 
+    works = 0
     while True:
-        print('Scheduler running..')
+        if works == 0:
+            print('Scheduler running..')
+            works+1
         schedule.run_pending()
         time.sleep(1)
