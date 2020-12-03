@@ -27,7 +27,7 @@ if __name__ == '__main__':
     options.add_experimental_option('excludeSwitches', ['enable-logging', 'ignore-certificate-errors'])
     options.add_argument('headless')
 
-    driver = webdriver.Chrome(executable_path='chromedriver.exe', options=options)
+    driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
 
     pTable = PrettyTable()
     pTable.field_names = ['DATE', 'TIME', 'CLASS', 'MODE', 'COURSE', 'SESSION', 'LINK']
